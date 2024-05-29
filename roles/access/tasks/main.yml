@@ -1,0 +1,22 @@
+- name: Ensure sudo group exists
+  ansible.bultin.group:
+    name: sudo
+    state: present
+
+- name: Create the test user and give him sudo privilege
+  ansible.builtin.user:
+    name: '{{ test_user }}'
+    group: "sudo"
+    password: "$6$xitee$Y8epHpfxMSF3zjGeU2yyAdm5eULnsFdIG2YIESwFkiXOvW8n7byw0Qgl8kkh8cGBD3Fu4ti/Fq6reZplwG2/X."
+
+- name: Set ssh keys
+  ansible.posix.authorized_key:
+    user: '{{ test_user }}'
+    state: present
+    key: '{{ item }}'
+  with_file:
+    - files/marek.ssh
+    - files/tkuba.ssh
+
+- name: Make the user a sudoer
+    
