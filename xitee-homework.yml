@@ -10,10 +10,15 @@
           - docker
         state: present
 
+    - name: Ensure /etc/docker exists
+      ansible.builtin.file:
+        path: /etc/docker
+        state: directory
+
     - name: Copy compose file to host
       ansible.builtin.copy:
         src: templates/compose.yml.j2
-        dest: /home/ansible/compose.yml
+        dest: /etc/docker/compose.yml
         mode: '644'
 
     - name: Tear down existing containers
