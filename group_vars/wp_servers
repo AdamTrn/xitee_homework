@@ -1,3 +1,4 @@
+docker_path: /etc/docker
 db_name: wp_db
 db_user: wp_user
 # Password would be vaulted

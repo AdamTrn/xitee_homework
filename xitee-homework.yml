@@ -10,23 +10,24 @@
           - docker
         state: present
 
-    - name: Ensure /etc/docker exists
+    - name: Ensure docker_path exists
       ansible.builtin.file:
-        path: /etc/docker
+        path: '{{ docker_path }}'
         state: directory
+        mode: '755'
 
     - name: Copy compose file to host
       ansible.builtin.copy:
         src: templates/compose.yml.j2
-        dest: /etc/docker/compose.yml
+        dest: '{{ docker_path }}/compose.yml'
         mode: '644'
 
     - name: Tear down existing containers
       community.docker.docker_compose_v2:
-        project_src: /home/ansible
+        project_src: '{{ docker_path }}'
         state: absent
 
     - name: Create new containers
       community.docker.docker_compose_v2:
-        project_src: /home/ansible
+        project_src: '{{ docker_path }}'
         state: present
