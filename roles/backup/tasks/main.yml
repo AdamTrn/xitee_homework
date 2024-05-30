@@ -1,12 +1,12 @@
 - name: Copy backup script
-  ansible.builtin.copy:
+  ansible.builtin.template:
     #TODO: doublecheck relative paths
-    src: files/backup.sh
+    src: templates/backup.sh.j2
     dest: "/usr/local/bin/backup.sh"
     #FIXME: could be different?
-    mode: '770'
+    mode: '777'
 
-- name: Create cron job
+- name: Create a cron job
   # 0 */8 * * * 
   ansible.builtin.cron:
     name: backup
