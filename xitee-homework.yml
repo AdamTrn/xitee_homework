@@ -1,11 +1,26 @@
 - name: Run compose using project directory
-  hosts: localhost
+  hosts: wp_servers
   gather_facts: false
+  become: yes
   tasks:
+    - name: Ensure docker is installed
+      ansible.builtin.apt:
+        name:
+          - docker_compose_v2
+          - docker
+        state: present
+
+    - name: Copy compose file to host
+      ansible.bultin.copy:
+        src: templates/compose.yml.j2
+        dest: /home/ansible/compose.yml
+
     - name: Tear down existing containers
       community.docker.docker_compose_v2:
+        project_src: /home/ansible
         state: absent
-    
+
     - name: Create new containers
       community.docker.docker_compose_v2:
+        project_src: /home/ansible
         state: present
