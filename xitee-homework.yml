@@ -17,7 +17,7 @@
         mode: '755'
 
     - name: Copy compose file to host
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: templates/compose.yml.j2
         dest: '{{ docker_path }}/compose.yml'
         mode: '644'
