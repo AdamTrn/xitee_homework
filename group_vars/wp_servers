@@ -8,3 +8,4 @@ db_path: /var/lib/mysql
 wp_path: /var/www/html
 
 mysql_port: 3306
+nginx_conf_dir: /etc/nginx-conf

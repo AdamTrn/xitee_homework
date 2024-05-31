@@ -40,7 +40,7 @@ services:
       - '80:80'
     volumes:
       - wordpress:{{ wp_path }}
-      - /etc/nginx-conf:/etc/nginx/conf.d
+      - {{ nginx_conf_dir }}:/etc/nginx/conf.d
     networks:
       - wp_network
 
