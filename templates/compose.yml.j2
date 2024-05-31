@@ -9,7 +9,7 @@ services:
     environment:
       MYSQL_DATABASE: {{ db_name }} 
       MYSQL_USER: {{ db_user }} 
-      MYSQL_PASSWORD: {{ db_pw }} 
+      MYSQL_PASSWORD: {{ db_user_pw }} 
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - db:{{ db_path }}
