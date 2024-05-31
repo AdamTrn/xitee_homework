@@ -8,4 +8,4 @@
   ansible.builtin.template:
     src: templates/nginx.conf.j2
     dest: '{{ nginx_conf_dir }}/nginx.conf'
-    mode: '755
+    mode: '755'
