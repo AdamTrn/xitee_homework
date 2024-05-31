@@ -1,12 +1,12 @@
 - name: By default deny everything in
   community.general.ufw:
     default: deny
-    direction: in
+    direction: incoming
 
 - name: By default allow everyting out
   community.general.ufw:
     default: allow
-    direction: out
+    direction: outgoing
 
 - community.general.ufw:
     rule: allow
