@@ -2,10 +2,10 @@
   ansible.builtin.file:
     path: '{{ nginx_conf_dir }}'
     state: directory
-    mode: '644'
+    mode: '755'
 
 - name: Create nginx conf
   ansible.builtin.template:
     src: templates/nginx.conf.j2
     dest: '{{ nginx_conf_dir }}/nginx.conf'
-    mode: '644'
+    mode: '755
