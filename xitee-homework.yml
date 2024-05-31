@@ -2,14 +2,6 @@
   hosts: wp_servers
   gather_facts: false
   become: true
-  tasks:
-    - name: Ensure nginx and ufw are installed
-      ansible.builtin.apt:
-        name:
-          - nginx
-          - ufw
-        state: present
-
   roles:
     - firewall
     - nginx

@@ -1,3 +1,8 @@
+- name: Ensure ufw is installed
+  ansible.builtin.apt:
+    name: ufw
+    state: present
+
 - name: By default deny everything in
   community.general.ufw:
     default: deny
