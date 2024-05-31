@@ -17,7 +17,8 @@
 - community.general.ufw:
     rule: allow
     direction: in
-    proto: ssh
+    port: ssh
+    proto: tcp 
 
 - name: Enable ufw
   community.general.ufw:
