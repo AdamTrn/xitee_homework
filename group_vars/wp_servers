@@ -3,7 +3,7 @@ docker_path: /etc/docker
 db_name: wp_db
 db_user: wp_user
 # Password would be vaulted
-db_pw: test123 
+db_user_pw: test123 
 db_path: /var/lib/mysql
 wp_path: /var/www/html
 
