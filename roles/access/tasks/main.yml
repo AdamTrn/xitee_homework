@@ -1,5 +1,5 @@
 - name: Ensure sudo group exists
-  ansible.bultin.group:
+  ansible.builtin.group:
     name: sudo
     state: present
 
