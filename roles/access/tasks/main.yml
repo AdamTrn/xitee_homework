@@ -5,13 +5,13 @@
 
 - name: Create the test user and give him sudo privilege
   ansible.builtin.user:
-    name: '{{ test_user }}'
+    name: '{{ access_test_user }}'
     group: sudo
     password: "$6$xitee$Y8epHpfxMSF3zjGeU2yyAdm5eULnsFdIG2YIESwFkiXOvW8n7byw0Qgl8kkh8cGBD3Fu4ti/Fq6reZplwG2/X."
 
 - name: Set ssh keys
   ansible.posix.authorized_key:
-    user: '{{ test_user }}'
+    user: '{{ access_test_user }}'
     key: '{{ item }}'
     state: present
   with_file:
