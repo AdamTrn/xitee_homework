@@ -1,4 +1,20 @@
-- name: Run compose using project directory
+- name: Set up nginx and firewall
+  hosts: wp_servers
+  gather_facts: false
+  become: true
+  roles:
+    - firewall
+    - nginx
+
+- name: Enable access and set up backups
+  hosts: wp_servers
+  gather_facts: false
+  become: true
+  roles:
+    - backup
+    - access
+
+- name: Create wordpress containers
   hosts: wp_servers
   gather_facts: false
   become: true
@@ -16,7 +32,7 @@
         state: directory
         mode: '755'
 
-    - name: Copy compose file to host
+    - name: Create compose file to host
       ansible.builtin.template:
         src: templates/compose.yml.j2
         dest: '{{ docker_path }}/compose.yml'

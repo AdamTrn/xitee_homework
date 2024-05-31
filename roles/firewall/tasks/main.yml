@@ -1,0 +1,24 @@
+- name: By default deny everything in
+  community.general.ufw:
+    default: deny
+    direction: in
+
+- name: By default allow everyting out
+  community.general.ufw:
+    default: allow
+    direction: out
+
+- community.general.ufw:
+    rule: allow
+    direction: in
+    port: 80
+    proto: tcp
+
+- community.general.ufw:
+  rule: allow
+  direction: in
+  proto: ssh
+
+- name: Enable ufw
+  community.general.ufw:
+    state: enabled

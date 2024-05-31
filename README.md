@@ -4,5 +4,6 @@ This is a repository for a DevOps homework as part of the hiring process of xite
 The components used are Ubuntu 22.04 LTS and VirtualBox hypervisor. \
 The recommended command to run this repository (after creating a completely fresh VM) are: \
 <code>
+ansible-galaxy collection install -r requirements.yml
 sudo ansible-playbook -i inventory xitee-homework.yml
 </code>
