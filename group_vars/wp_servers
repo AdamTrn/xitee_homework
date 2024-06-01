@@ -4,8 +4,8 @@ db_name: wp_db
 db_user: wp_user
 # Password would be vaulted
 db_user_pw: test123 
+
 db_path: /var/lib/mysql
 wp_path: /var/www/html
 
-mysql_port: 3306
 nginx_conf_dir: /etc/nginx-conf
