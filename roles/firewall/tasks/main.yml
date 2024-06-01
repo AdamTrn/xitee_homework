@@ -8,18 +8,20 @@
     default: deny
     direction: incoming
 
-- name: By default allow everyting out
+- name: By default allow everything out
   community.general.ufw:
     default: allow
     direction: outgoing
 
-- community.general.ufw:
+- name: Allow http in
+  community.general.ufw:
     rule: allow
     direction: in
     port: 80
     proto: tcp
 
-- community.general.ufw:
+- name: Allow ssh in
+  community.general.ufw:
     rule: allow
     direction: in
     port: ssh
