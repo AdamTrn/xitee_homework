@@ -8,3 +8,6 @@ dump_location="/backup/dump.sql"
 
 mysqldump -u {{ db_user }} -p {{ db_user_pw }} {{ db_name }} > $dump_location 
 tar -cavf $backup_filename {{ wp_path }} $dump_location
+
+# Delete 2 oldest files
+ls -t1r | head -n 2 | xargs rm
