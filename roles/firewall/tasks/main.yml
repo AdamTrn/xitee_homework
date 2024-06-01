@@ -17,15 +17,13 @@
   community.general.ufw:
     rule: allow
     direction: in
-    port: 80
-    proto: tcp
+    port: http 
 
 - name: Allow ssh in
   community.general.ufw:
     rule: allow
     direction: in
     port: ssh
-    proto: tcp
 
 - name: Enable ufw
   community.general.ufw:
