@@ -6,7 +6,7 @@
     - firewall
     - nginx
 
-- name: Enable access and set up backups
+- name: Enable access for test user and set up backups
   hosts: wp_servers
   gather_facts: false
   become: true
